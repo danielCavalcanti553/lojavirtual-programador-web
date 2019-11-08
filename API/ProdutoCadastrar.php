@@ -1,34 +1,38 @@
 <?php
+namespace LOJA\API;
+use LOJA\Model\Produto;
+use LOJA\DAO\DAOProduto;
+class ProdutoCadastrar{
 
-if($_POST){
+    public $msg;
 
-    require_once 'model/conexao.php';
-    require_once 'model/produto.class.php';
-    require_once 'model/departamento.class.php';
-    require_once 'dao/produto.dao.php';
+            function __construct(){
 
-        try{
-            // Criamos um objeto produto
-            $produto = new Produto();
-            $produto->setNome($_POST['nome']);
-            $produto->setPreco($_POST['preco']);
-            $produto->setDescricao($_POST['descricao']);
+                if($_POST){
+                        try{
+                            // Criamos um objeto produto
+                            $produto = new Produto();
+                            $produto->setNome($_POST['nome']);
+                            $produto->setPreco($_POST['preco']);
+                            $produto->setDescricao($_POST['descricao']);
 
-            // Crio um objeto Departamento
-            $departamento =new Departamento();
-            $departamento->setId($_POST['departamento']);
+                            // Crio um objeto Departamento
+                            $departamento =new Departamento();
+                            $departamento->setId($_POST['departamento']);
 
-            // Definindo o departamento para o produto
-            $produto->setDepartamento($departamento);
-            
-            $DAO = new DAOProduto();
-            $msg = $DAO->cadastrar($produto);
-            
-            
-        }catch(Exception $e){
-            $msg = $e->getMessage();
-            
+                            // Definindo o departamento para o produto
+                            $produto->setDepartamento($departamento);
+                            
+                            $DAO = new DAOProduto();
+                            $msg = $DAO->cadastrar($produto);
+                            
+                            
+                        }catch(Exception $e){
+                            $msg = $e->getMessage();
+                            
+                        }
+                    }
+                }
         }
-    }
     
 ?>

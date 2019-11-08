@@ -46,6 +46,17 @@
             $view = "visualiza-cliente.php";
             break;
 
+        case 'produtocadastrar':
+            
+            $obj = new \LOJA\API\ProdutoCadastrar;
+            $msg = $obj->msg;
+
+            $obj2 = new \LOJA\API\DepartamentoListar;                ;
+            $lista = $obj2->lista;
+
+            $view = "form-produto.php";
+            break;
+
         default:
             echo "default";
         break;
