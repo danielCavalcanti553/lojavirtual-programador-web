@@ -5,6 +5,7 @@ class Produto{
     private $nome;
     private $preco;
 	private $descricao;
+	private $imagem;
 	
     private $departamento; // objeto ($id e $nome)
 
@@ -49,6 +50,14 @@ class Produto{
 
 	public function setDepartamento($departamento){
 		$this->departamento = $departamento;
+	}
+
+	public function getImagem(){
+		return $this->imagem;
+	}
+
+	public function setImagem($imagem){
+		$this->imagem = $imagem;
 	}
 }
 

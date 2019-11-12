@@ -4,6 +4,9 @@
     $router = $_GET['model'].$_GET['action'];
     
     $view = "";
+    
+    // CONFIG
+    $url = "http://localhost/lojavirtual";
 
     switch($router){
 
@@ -57,9 +60,15 @@
             $view = "form-produto.php";
             break;
 
+        case 'produtolistar':
+            $obj = new \LOJA\API\ProdutoListar;
+            $lista = $obj->lista;
+            $view = "lista-produto.php";
+            break;
+
         default:
-            echo "default";
-        break;
+            $view = "lista-produto.php";
+            break;
     }
 
     include "view/{$view}";

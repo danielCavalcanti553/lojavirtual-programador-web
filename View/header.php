@@ -51,7 +51,7 @@
           Departamentos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php echo $_SERVER[HTTP_HOST]; ?>/departamento/listar">Listar Departarmentos</a>
+          <a class="dropdown-item" href="<?php echo $url; ?>/departamento/listar">Listar Departarmentos</a>
           <a class="dropdown-item" href="ctrl-departamento-cadastro.php">Novo Departamento</a>
         </div>
       </li>
@@ -61,8 +61,8 @@
           Produtos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item disabled" href="ctrl-produto-lista.php">Listar Produtos</a>
-          <a class="dropdown-item" href="ctrl-produto-cadastro.php">Novo Produto</a>
+          <a class="dropdown-item " href="<?php echo $url; ?>/produto/listar">Listar Produtos</a>
+          <a class="dropdown-item" href="<?php echo $url; ?>/produto/cadastrar">Novo Produto</a>
         </div>
       </li>
 

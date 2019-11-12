@@ -1,7 +1,14 @@
 <?php
-    require_once "model/conexao.php";
-    require_once "dao/produto.dao.php";
+namespace LOJA\API;
+use LOJA\DAO\DAOProduto;
+class ProdutoListar {
 
-    $obj = new DAOProduto();
-    $lista = $obj->listaProduto();
+    public $lista;
+    
+    function __construct(){
+    
+        $obj = new DAOProduto();
+        $this->lista = $obj->listaProduto();
+    }
+}
 ?>
