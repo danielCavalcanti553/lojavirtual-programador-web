@@ -6,11 +6,8 @@ use LOJA\DAO\DAOProduto;
 use LOJA\includes\Util;
 
 class ProdutoCadastrar{
-
     public $msg;
-
             function __construct(){
-
                 if($_POST){
                         try{
                             // Criamos um objeto produto

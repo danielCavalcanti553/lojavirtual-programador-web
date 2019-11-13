@@ -1,7 +1,7 @@
 <?php 
 
     require "includes/autoload.php";
-    $router = $_GET['model'].$_GET['action'];
+    @$router = $_GET['model'].$_GET['action'];
     
     $view = "";
     
@@ -64,6 +64,16 @@
             $obj = new \LOJA\API\ProdutoListar;
             $lista = $obj->lista;
             $view = "lista-produto.php";
+            break;
+        
+        case 'home':
+            $obj = new \LOJA\API\DepartamentoListar;
+            $lista = $obj->lista;
+
+            $obj = new \LOJA\API\ProdutoListar;
+            $lista2 = $obj->lista;
+
+            $view = "home.php";
             break;
 
         default:

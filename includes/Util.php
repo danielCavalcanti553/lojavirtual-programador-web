@@ -1,11 +1,11 @@
 <?php
 namespace LOJA\includes;
 class Util{
-    
+  
     public static function uploadImg(){
         // ENVIA IMAGEM
         $target_dir = "View/img/produtos/"; // MUDA DIRETÓRIO
-        $target_file = $target_dir . basename($_FILES["imagem"]["name"]); // PEGA O ARQUIVO
+       // $target_file = $target_dir . basename($_FILES["imagem"]["name"]); // PEGA O ARQUIVO
         $uploadOk = 1; // 1 QUER DIZER OK
         $extension = strtolower(pathinfo($_FILES["imagem"]["name"] ,PATHINFO_EXTENSION)); // PEGA EXTENSÃO
         $newName = md5(uniqid("")).".".$extension; // GERA NOME ALEATORIO COM A EXTENSÃO
@@ -16,7 +16,7 @@ class Util{
             && $extension != "gif" && $extension != "jfif" ) {
                 $uploadOk = 0;
         }
-        
+
         // SE estiver ok, $uploadOk =1, move o arquivo
         if ($uploadOk == 0) {
             $msg = "Error de Upload";

@@ -41,7 +41,7 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="descricao">Descricao</label>  
+                <label class="col-md-4 control-label" for="descricao">Imagem    </label>  
                 <div class="col-md-4">
   <input id="imagem" name="imagem" type="file" placeholder="" class="form-control input-md" required="">
   </div>
