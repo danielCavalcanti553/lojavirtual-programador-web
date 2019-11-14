@@ -1,5 +1,5 @@
 <?php 
-
+    session_start();
     require "includes/autoload.php";
     @$router = $_GET['model'].$_GET['action'];
     
@@ -11,13 +11,17 @@
     switch($router){
 
         case 'departamentocadastrar':
-            
+            \LOJA\includes\Seguranca::restritoAdm();
             $obj = new \LOJA\API\DepartamentoCadastrar;
             $msg = $obj->msg;
+            
             $view = "form-departamento.php";
             break;
 
         case 'departamentolistar':
+
+            \LOJA\includes\Seguranca::restritoAdm();
+
             $obj = new \LOJA\API\DepartamentoListar;
             $lista = $obj->lista;
             $view = "lista-departamento.php";
@@ -76,12 +80,28 @@
             $view = "home.php";
             break;
 
+
+        case 'loginadm':
+            $obj = new \LOJA\API\UsuarioLogar;
+            $msg = $obj->msg;
+            $view = "form-login-adm.php";
+            break;
+
+        case 'paineladm':
+            $view = "painel-adm.php";
+            break;
+
+        case 'painellogoff':
+            $obj = new \LOJA\API\UsuarioLogoff;
+            $view = "form-login-adm.php";
+            break;
+
         default:
             $view = "lista-produto.php";
             break;
     }
 
     include "view/{$view}";
-
+   
 ?>
 
