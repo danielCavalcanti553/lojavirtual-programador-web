@@ -1,0 +1,44 @@
+<?php
+namespace LOJA\Model;
+use LOJA\Model\Produto;
+
+class Item implements \Serializable{
+	
+    private $id;
+	private $produto;
+	private $quantidade;
+	private $data;
+
+	public function serialize() {
+        return serialize($this->data);
+    }
+    public function unserialize($data) {
+        $this->data = unserialize($data);
+    }
+
+    public function __construct(){
+	}
+	public function getId(){
+		return $this->id;
+	}
+
+	public function setId($id){
+		$this->id = $id;
+	}
+
+	public function getProduto() {
+		return $this->produto;
+	}
+
+	public function setProduto(Produto $produto){
+		$this->produto = $produto;
+	}
+
+	public function getQuantidade(){
+		return $this->quantidade;
+	}
+
+	public function setQuantidade($quantidade){
+		$this->quantidade = $quantidade;
+	}
+}

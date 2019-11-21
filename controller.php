@@ -3,6 +3,7 @@
     require "includes/autoload.php";
     @$router = $_GET['model'].$_GET['action'];
     
+    
     $view = "";
     
     // CONFIG
@@ -96,9 +97,27 @@
             $view = "form-login-adm.php";
             break;
 
-        default:
-            $view = "lista-produto.php";
+        case ('carrinhovisualizar' || 'carrinhoadicionar'):
+
+            $obj = new \LOJA\API\CarrinhoVisualizar;
+            $lista2 = $obj->carrinho;
+
+            $obj = new \LOJA\API\DepartamentoListar;
+            $lista = $obj->lista;
+            $view = "carrinho.php";
             break;
+            
+        default:
+            $obj = new \LOJA\API\DepartamentoListar;
+            $lista = $obj->lista;
+
+            $obj = new \LOJA\API\ProdutoListar;
+            $lista2 = $obj->lista;
+
+            $view = "home.php";
+            break;
+
+
     }
 
     include "view/{$view}";

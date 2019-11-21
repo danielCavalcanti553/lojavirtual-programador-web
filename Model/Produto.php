@@ -10,8 +10,8 @@ class Produto{
     private $departamento; // objeto ($id e $nome)
 
     function __construct(){
-    }
-
+	}
+	
 	public function getId(){
 		return $this->id;
 	}
