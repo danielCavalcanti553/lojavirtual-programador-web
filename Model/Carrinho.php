@@ -26,14 +26,14 @@ class Carrinho{
 	}
 
 	public function removeItem($id){
-		$item;
+		
 		foreach($this->lista as $item){
 			if($item->getProduto()->getId()===$id){
-				$item = $item->getProduto();
+				$index = array_search($item, $this->lista, true);
+				unset($this->lista[$index]);
 			};
 		}
-		$index = array_search($item, $this->lista, true);
-		unset($this->lista[$index]);
+		
 	}
 
 	public function getItems(){

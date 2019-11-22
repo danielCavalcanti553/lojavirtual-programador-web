@@ -22,7 +22,7 @@ class CarrinhoRemover{
                 if($item->getProduto()->getId()===$id){
                     
                     $carrinho->removeItem($id);
-                   
+                    
                 
                     $_SESSION['carrinho'] = $carrinho;
 

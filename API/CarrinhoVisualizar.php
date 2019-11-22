@@ -24,6 +24,7 @@ class CarrinhoVisualizar{
             foreach($carrinho->getItems() as $item) {
                 if($item->getProduto()->getId()===$id){
                     $add= false;
+                    
                 };   
             }
         }else{
