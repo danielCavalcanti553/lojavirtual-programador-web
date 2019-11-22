@@ -1,6 +1,7 @@
 <?php 
-    session_start();
+    
     require "includes/autoload.php";
+    session_start();
     @$router = $_GET['model'].$_GET['action'];
     
     
@@ -97,17 +98,28 @@
             $view = "form-login-adm.php";
             break;
 
-        case ('carrinhovisualizar' || 'carrinhoadicionar'):
+        case ('carrinhoadicionar'):
 
             $obj = new \LOJA\API\CarrinhoVisualizar;
-            $lista2 = $obj->carrinho;
+
 
             $obj = new \LOJA\API\DepartamentoListar;
             $lista = $obj->lista;
             $view = "carrinho.php";
             break;
-            
+
+        case ('carrinhoremover'):
+
+            $obj = new \LOJA\API\CarrinhoRemover;
+
+
+            $obj = new \LOJA\API\DepartamentoListar;
+            $lista = $obj->lista;
+            $view = "carrinho.php";
+            break;
+               
         default:
+        echo "ok";
             $obj = new \LOJA\API\DepartamentoListar;
             $lista = $obj->lista;
 

@@ -2,22 +2,15 @@
 namespace LOJA\Model;
 use LOJA\Model\Produto;
 
-class Item implements \Serializable{
+class Item{
 	
     private $id;
 	private $produto;
 	private $quantidade;
-	private $data;
-
-	public function serialize() {
-        return serialize($this->data);
-    }
-    public function unserialize($data) {
-        $this->data = unserialize($data);
-    }
 
     public function __construct(){
 	}
+	
 	public function getId(){
 		return $this->id;
 	}

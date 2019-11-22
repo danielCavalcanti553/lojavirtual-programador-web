@@ -9,6 +9,7 @@ class Carrinho{
     private $lista;
 
     public function __construct(){
+		$this->lista = [];
 	}
 	
 	public function getId(){
@@ -20,7 +21,19 @@ class Carrinho{
 	}
 
 	public function addItem(Item $item){
-		$this->lista[] = $item;
+		
+		array_push($this->lista,$item);
+	}
+
+	public function removeItem($id){
+		$item;
+		foreach($this->lista as $item){
+			if($item->getProduto()->getId()===$id){
+				$item = $item->getProduto();
+			};
+		}
+		$index = array_search($item, $this->lista, true);
+		unset($this->lista[$index]);
 	}
 
 	public function getItems(){
