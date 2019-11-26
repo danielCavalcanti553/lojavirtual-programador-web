@@ -5,53 +5,38 @@ use LOJA\Model\Carrinho;
 use LOJA\Model\Item;
 use LOJA\Model\Produto;
 
-
 class CarrinhoVisualizar{
 
     function __construct(){
 
         $carrinho;
 
-        @$qtd = str_replace("qtd=","",$_GET['qtd']);
         $id = $_GET['id'];
-        $add = true;
-
-        //$_SESSION['carrinho'] = null; unset($_SESSION['carrinho']);
-        
+        $add = true; // true-> Adicione no carrinh // false-> Já existe no carrinho, não adicionar
+        //$_SESSION['carrinho'] = null;
+        // se existir carrinho criado
         if(isset($_SESSION['carrinho'])){
-            $carrinho = $_SESSION['carrinho'];
             
+            $carrinho = $_SESSION['carrinho']; // Pega o carrinho 
+            
+            // Verifica se o produto já existe no carrinho
             foreach($carrinho->getItems() as $item) {
-                if($item->getProduto()->getId()===$id){
-                    $add= false;
-                    
-                };   
+                if($item->getProduto()->getId()===$id){ // Verificação feita pelo ID do produto
+                    $add= false;// Produto encontrado, não adicione
+                };
+                
             }
         }else{
-            
+            // Carrinho não existe na Session, então crie
             $carrinho = new Carrinho();
         }
 
+        // Produto não consta no carrinho, então adicione
         if($add===true){
-        
-            $dao = new DAOProduto();
-            $obj = new Produto();
-            $obj = $dao->buscaPorId($id);
-
-            if($obj->getId()){
-                $item = new Item();
-                $item->setProduto($obj);
-                $item->setQuantidade($qtd);
-                $carrinho->addItem($item);
-            };
-
-            $_SESSION['carrinho'] = $carrinho;
+            $carrinho->addItem($id); // Adicionando produto
+            $_SESSION['carrinho'] = $carrinho; // Coloca o carrinho na session com o produto adicionado
             
     }
-    
-    
-
-    
 
     }
 }

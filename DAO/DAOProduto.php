@@ -50,7 +50,7 @@ class DAOProduto{
     public function buscaPorId($id){
         $sql = "SELECT * FROM produto WHERE pk_produto = :id";
         $con = Conexao::getInstance()->prepare($sql);
-        $con->bindValue(":id", $id);  
+        $con->bindValue(":id", $id);
         $con->execute();
 
         $obj = $con->fetch(\PDO::FETCH_ASSOC);

@@ -22,4 +22,6 @@ class DAOCarrinho{
 		unset($this->lista[$index]);
 	}
 
+	
+
 }

@@ -1,8 +1,7 @@
 <?php
+
 namespace LOJA\Model;
 use LOJA\Model\Item;
-use LOJA\DAO\DAOProduto;
-use LOJA\Model\Produto;
 
 class Carrinho{
 	
@@ -11,7 +10,6 @@ class Carrinho{
 
     public function __construct(){
 		$this->lista = [];
-		
 	}
 	
 	public function getId(){
@@ -22,28 +20,20 @@ class Carrinho{
 		$this->id = $id;
 	}
 
-	public function addItem($id){
-
- 			$dao = new DAOProduto();
-            $obj = new Produto();
-			$obj = $dao->buscaPorId($id);
-			
-            if($obj->getId()){
-                $item = new Item();
-                $item->setProduto($obj);
-                $item->setQuantidade(1);
-            };
+	public function addItem(Item $item){
+		
 		array_push($this->lista,$item);
 	}
 
 	public function removeItem($id){
-
+		
 		foreach($this->lista as $item){
 			if($item->getProduto()->getId()===$id){
 				$index = array_search($item, $this->lista, true);
 				unset($this->lista[$index]);
 			};
 		}
+		
 	}
 
 	public function getItems(){

@@ -98,28 +98,30 @@
             $view = "form-login-adm.php";
             break;
 
-        case ('carrinhoadicionar'):
+        case 'carrinhoadicionar':
 
             $obj = new \LOJA\API\CarrinhoVisualizar;
-
-
             $obj = new \LOJA\API\DepartamentoListar;
             $lista = $obj->lista;
             $view = "carrinho.php";
             break;
 
-        case ('carrinhoremover'):
+        case 'carrinhoremover':
 
             $obj = new \LOJA\API\CarrinhoRemover;
-
-
             $obj = new \LOJA\API\DepartamentoListar;
             $lista = $obj->lista;
             $view = "carrinho.php";
             break;
+
+            case 'carrinho':
+                $obj = new \LOJA\API\DepartamentoListar;
+                $lista = $obj->lista;
+                $view = "carrinho.php";
+                break;
                
         default:
-        echo "ok";
+            echo "ok";
             $obj = new \LOJA\API\DepartamentoListar;
             $lista = $obj->lista;
 
