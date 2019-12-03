@@ -16,6 +16,7 @@ public function testClass()
      $this->assertEquals($c->getTelefone(), '(21)1231-2132');
      $this->assertEquals($c->getEmail(), 'daniel@email.com');
      $this->assertEquals($c->getCpf(), '123.456.789-10');
+
   }
 
   public function testErrorEmail(){
@@ -37,8 +38,8 @@ public function testClass()
     $this->expectException(\Exception::class);
     $this->expectExceptionMessage('CPF Inválido');
     $c = new Cliente();
-    $c->setCpf("131.852.447-45");
+    $c->setCpf("13185244745");
     
   }
-  
+
 }

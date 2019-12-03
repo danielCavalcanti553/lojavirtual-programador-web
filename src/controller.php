@@ -8,7 +8,7 @@
     $view = "";
     
     // CONFIG
-    $url = "http://localhost/lojavirtual";
+    $url = "http://localhost/lojavirtual/src";
 
     switch($router){
 
@@ -71,6 +71,12 @@
             $lista = $obj->lista;
             $view = "lista-produto.php";
             break;
+
+        case 'produtobuscar':
+            $obj = new \LOJA\API\ProdutoBuscaNome;
+            $lista = $obj->lista;
+            $view = "lista-produto.php";
+            break;           
         
         case 'home':
             $obj = new \LOJA\API\DepartamentoListar;
