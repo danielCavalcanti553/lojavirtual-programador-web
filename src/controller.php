@@ -4,11 +4,13 @@
     session_start();
     @$router = $_GET['model'].$_GET['action'];
     
-    
     $view = "";
     
     // CONFIG
     $url = "http://localhost/lojavirtual/src";
+    //$url = "http://aulaphp.web70113.uni5.net/src";
+
+    $cepOrigem = "21852070";
 
     switch($router){
 
@@ -76,7 +78,14 @@
             $obj = new \LOJA\API\ProdutoBuscaNome;
             $lista = $obj->lista;
             $view = "lista-produto.php";
-            break;           
+            break;
+        
+            case 'fretecalcular':
+                $obj = new \LOJA\API\CalcularFrete;
+                $frete = $obj->frete;
+               
+                $view = "carrinho.php";
+            break;
         
         case 'home':
             $obj = new \LOJA\API\DepartamentoListar;

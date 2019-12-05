@@ -36,10 +36,24 @@
             }
         }
     ?>
+
+    
+    
            
 </div>
 
+<form method="post" action="<?php echo $url; ?>/frete/calcular">
+        <label>Frete</label>
+        <input type="text" size="20" name="cep" />
+        <button>Calular</button>
+    </form>
 
+    <?php
+        if(isset($_POST['cep'])){
+            echo "<p>Preço: R$ ".$frete->getValor()."</p>";
+            echo "<p>Entrega: R$ ".$frete->getPrazoEntrega()." dias</p>";
+        }
+    ?>
 <?php include "view/footer.php" ?>
 
 
