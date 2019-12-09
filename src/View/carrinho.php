@@ -37,11 +37,7 @@
         }
     ?>
 
-    
-    
-           
-</div>
-
+<div class="col-md-4">
 <form method="post" action="<?php echo $url; ?>/frete/calcular">
         <label>Frete</label>
         <input type="text" size="20" name="cep" />
@@ -52,8 +48,18 @@
         if(isset($_POST['cep'])){
             echo "<p>Preço: R$ ".$frete->getValor()."</p>";
             echo "<p>Entrega: R$ ".$frete->getPrazoEntrega()." dias</p>";
+            echo '<a href="pedido/finalizar" class="btn btn-success">Finalizar</a>';
+                
+            $_SESSION['frete'] = $frete;
+            
+        }else{
+            echo "<p>Insira o CEP</p>";
+            echo '<a href="" class="btn btn-success disabled">Finalizar</a>';
         }
     ?>
+
+    
+</div></div>
 <?php include "view/footer.php" ?>
 
 

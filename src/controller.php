@@ -1,16 +1,14 @@
 <?php 
-    
+    use LOJA\includes\Config;
+
     require "includes/autoload.php";
     session_start();
-    @$router = $_GET['model'].$_GET['action'];
-    
-    $view = "";
-    
-    // CONFIG
-    $url = "http://localhost/lojavirtual/src";
-    //$url = "http://aulaphp.web70113.uni5.net/src";
 
-    $cepOrigem = "21852070";
+    @$router = $_GET['model'].$_GET['action'];
+    $view = "";
+
+    $config = new Config();
+    $url = $config->url;
 
     switch($router){
 
@@ -36,7 +34,6 @@
             $departamento = $obj->dados;
             $view = "visualiza-departamento.php";
             break;
-
 
         case 'clientecadastrar':
             
@@ -81,9 +78,13 @@
             break;
         
             case 'fretecalcular':
+
+                $obj = new \LOJA\API\DepartamentoListar;
+                $lista = $obj->lista;
+
                 $obj = new \LOJA\API\CalcularFrete;
                 $frete = $obj->frete;
-               
+                
                 $view = "carrinho.php";
             break;
         
@@ -129,11 +130,11 @@
             $view = "carrinho.php";
             break;
 
-            case 'carrinho':
-                $obj = new \LOJA\API\DepartamentoListar;
-                $lista = $obj->lista;
-                $view = "carrinho.php";
-                break;
+        case 'carrinho':
+            $obj = new \LOJA\API\DepartamentoListar;
+            $lista = $obj->lista;
+            $view = "carrinho.php";
+            break;
                
         default:
             echo "ok";

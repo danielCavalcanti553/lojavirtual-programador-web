@@ -23,6 +23,7 @@ class ComposerStaticInita117321f0d827287bf2959f830575241
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Component\\Process\\' => 26,
         ),
         'P' => 
         array (
@@ -31,6 +32,10 @@ class ComposerStaticInita117321f0d827287bf2959f830575241
         'L' => 
         array (
             'LOJA\\' => 5,
+        ),
+        'F' => 
+        array (
+            'Facebook\\WebDriver\\' => 19,
         ),
         'D' => 
         array (
@@ -54,6 +59,10 @@ class ComposerStaticInita117321f0d827287bf2959f830575241
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Symfony\\Component\\Process\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/process',
+        ),
         'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
@@ -61,6 +70,10 @@ class ComposerStaticInita117321f0d827287bf2959f830575241
         'LOJA\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Facebook\\WebDriver\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/facebook/webdriver/lib',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

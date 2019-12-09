@@ -12,9 +12,11 @@ class CarrinhoVisualizar{
         $carrinho;
 
         $id = $_GET['id'];
+    
         $add = true; // true-> Adicione no carrinh // false-> Já existe no carrinho, não adicionar
         //$_SESSION['carrinho'] = null;
         // se existir carrinho criado
+        
         if(isset($_SESSION['carrinho'])){
             
             $carrinho = $_SESSION['carrinho']; // Pega o carrinho 

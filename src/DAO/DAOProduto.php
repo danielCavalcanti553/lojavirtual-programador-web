@@ -7,7 +7,7 @@ class DAOProduto{
 
     public function cadastrar(Produto $produto){
         $sql = "INSERT INTO produto 
-            VALUES (default, :nome, :preco, :descricao, :imagem, :departamento)";
+            VALUES (default, :nome, :preco, :descricao, :departamento, :imagem)";
         
         $con = Conexao::getInstance()->prepare($sql);
         $con->bindValue(":nome", $produto->getNome());
@@ -60,6 +60,7 @@ class DAOProduto{
         $produto->setNome($obj['nome']);
         $produto->setPreco($obj['preco']);
         $produto->setImagem($obj['imagem']);
+        $produto->setDescricao($obj['descricao']);
 
         return $produto;
     }

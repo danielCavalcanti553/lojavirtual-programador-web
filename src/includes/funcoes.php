@@ -1,9 +1,5 @@
 <?php
 
-
-
-
-
 function uploadImg(){
 			// ENVIA IMAGEM
 			$target_dir = "img/noticia/"; // MUDA DIRETÓRIO

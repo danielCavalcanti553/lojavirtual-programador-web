@@ -23,7 +23,7 @@ class ProdutoCadastrar{
 
                             // Definindo o departamento para o produto
                             $produto->setDepartamento($departamento);
-         
+                           
                             $DAO = new DAOProduto();
                             $msg = $DAO->cadastrar($produto);
                             

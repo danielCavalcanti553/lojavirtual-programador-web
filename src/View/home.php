@@ -8,7 +8,7 @@
     <img width="100%" src="<?php echo $url; ?>/View/img/produtos/<?php echo $produto['imagem'] ?>">
         <p><?php echo $produto['nome'] ?></p>
         <p>R$ <?php echo number_format($produto['preco'],2,",","."); ?></p>
-        <a href="<?php echo $link; ?>" class="btn btn-success">Comprar</a>
+        <a href="<?php echo $url; ?>/carrinho/adicionar/<?php echo $produto['id']; ?>" class="btn btn-success">Comprar</a>
     </div>
     <?php } ?>
 </div>

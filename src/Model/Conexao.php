@@ -1,13 +1,17 @@
 <?php
 namespace LOJA\Model;
+use LOJA\includes\Config;
 class Conexao{
 
     private function __construct(){
     }
+    
     public static function getInstance(){
+    
         try {
-            $conexao = new \PDO("mysql:host=localhost; dbname=sistemaemp", "root", "");
-            //$conexao = new \PDO("mysql:host=mysql17-farm70.uni5.net; dbname=aulaphp", "aulaphp", "senac10058");
+            $config = new Config();
+
+            $conexao = new \PDO("mysql:host={$config->serverHost}; dbname={$config->serverDB}", "{$config->serverUser}", "{$config->serverPass}");
             $conexao->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             $conexao->exec("set names utf8");
             return $conexao;
