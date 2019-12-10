@@ -1,4 +1,4 @@
-<?php include "view/header-loja.php" ?>
+<?php include "View/header-loja.php" ?>
 
 <div class="row">
     <?php foreach($lista2 as $produto) { 
@@ -14,7 +14,7 @@
 </div>
 
 
-<?php include "view/footer.php" ?>
+<?php include "View/footer.php" ?>
 
 
                

@@ -9,6 +9,7 @@ function uploadImg(){
 			$newName = md5(uniqid("")).".".$extension; // GERA NOME ALEATORIO COM A EXTENSÃO
 			
 			
+			
 			// VERIFICA SE IMAGEM É JPG, PNG OU GIR
 			if($extension != "jpg" && $extension != "png" && $extension != "jpeg"
 				&& $extension != "gif" ) {

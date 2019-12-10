@@ -69,7 +69,7 @@ class ComposerStaticInita117321f0d827287bf2959f830575241
         ),
         'LOJA\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/www',
         ),
         'Facebook\\WebDriver\\' => 
         array (

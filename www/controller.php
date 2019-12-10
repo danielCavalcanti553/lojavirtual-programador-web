@@ -150,7 +150,7 @@
 
     }
 
-    include "view/{$view}";
+    include "View/{$view}";
    
 ?>
 
