@@ -10,8 +10,9 @@ class Pedido{
     private $cliente;
 
     function __construct(){
-    }
-    
+	}
+	
+    // Get Set
     public function getId(){
 		return $this->id;
 	}

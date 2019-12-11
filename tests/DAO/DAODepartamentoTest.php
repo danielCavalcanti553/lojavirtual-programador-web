@@ -1,10 +1,10 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use LOJA\Model\Cliente;
-use LOJA\DAO\DAOCliente;
+use LOJA\Model\Departamento;
+use LOJA\DAO\DAODepartamento;
 
 
-class DAOClienteTests extends TestCase
+class DAODepartamentoTests extends TestCase
 {
     /**
      * @before
@@ -17,15 +17,13 @@ class DAOClienteTests extends TestCase
   public function testCadastro()
   {
       // Dados
-     $c = new Cliente();
-     $c->setNome('Daniel 55');
-     $c->setTelefone('(21)1231-2132');
-     $c->setEmail('daniel@email.com');
-     $c->setCpf('123.456.789-10');
+     $d = new Departamento();
+     $d->setNome('Daniel 55');
+
 
      // Execução
-     $DAO = new DAOCliente();
-     $result = $DAO->cadastrar($c);
+     $DAO = new DAODepartamento();
+     $result = $DAO->cadastrar($d);
 
       //Testa Resultados
      $this->assertEquals($result,"Cadastrado com sucesso");
