@@ -6,17 +6,31 @@ use LOJA\Model\Cliente;
 class DAOCliente{
 
     public function cadastrar(Cliente $cliente){
-        $sql = "INSERT INTO cliente 
-            VALUES (default, :nome, :telefone, :email, :cpf)";
-        
-        $con = Conexao::getInstance()->prepare($sql);
-        $con->bindValue(":nome", $cliente->getNome());
-        $con->bindValue(":telefone", $cliente->getTelefone());
-        $con->bindValue(":email", $cliente->getEmail());
-        $con->bindValue(":cpf", $cliente->getCpf());
-        $con->execute();
 
-        return "Cadastrado com sucesso";
+        $pdo = Conexao::getInstance();
+        $pdo->beginTransaction();
+
+        try{
+
+            $con = $pdo->prepare("
+                INSERT INTO cliente VALUES (default, :nome, :telefone, :email, :cpf)"
+            );
+
+            $con->bindValue(":nome", $cliente->getNome());
+            $con->bindValue(":telefone", $cliente->getTelefone());
+            $con->bindValue(":email", $cliente->getEmail());
+            $con->bindValue(":cpf", $cliente->getCpf());
+            $con->execute();
+
+            $lastId = $pdo->lastInsertId();
+            $pdo->commit();
+            return $lastId;
+
+        }catch(Exception $e){
+            $pdo->rollback();
+            return 0;
+        }
+
     }
 
     public function listaClientes(){

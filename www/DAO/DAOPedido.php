@@ -49,7 +49,6 @@ class DAOPedido{
             return "Pedido efetuado com sucesso";
 
         }catch(Exception $e){
-
             $pdo->rollback();
             return "Erro ao efetuar o pedido";
         }
