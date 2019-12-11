@@ -4,26 +4,26 @@ use LOJA\Model\Produto;
 
 class Item{
 	
-    private $id;
+    private $pedido;
 	private $produto;
 	private $quantidade;
 
     public function __construct(){
 	}
 	
-	public function getId(){
-		return $this->id;
+	public function getPedido(){
+		return $this->pedido;
 	}
 
-	public function setId($id){
-		$this->id = $id;
+	public function setPedido($pedido){
+		$this->pedido = $pedido;
 	}
 
-	public function getProduto() {
+	public function getProduto(){
 		return $this->produto;
 	}
 
-	public function setProduto(Produto $produto){
+	public function setProduto($produto){
 		$this->produto = $produto;
 	}
 

@@ -4,7 +4,8 @@
     <?php
         $carrinho = $_SESSION['carrinho'];
 
-        if(empty($carrinho->getItems())){
+
+         if(is_null($carrinho) || empty($carrinho->getItems())){
             // Inicio HTML
             ?>
                 <p>Seu Carrinho está vazio</p>
@@ -15,7 +16,7 @@
 
             foreach ($carrinho->getItems() as $item){
                 $produto = $item->getProduto();
-                $link = "http://localhost/lojavirtual/carrinho/remover/".$produto->getId();
+                $link = "{$url}/carrinho/remover/".$produto->getId();
              
                 // Inicio HTML
             ?>
@@ -48,13 +49,11 @@
         if(isset($_POST['cep'])){
             echo "<p>Preço: R$ ".$frete->getValor()."</p>";
             echo "<p>Entrega: R$ ".$frete->getPrazoEntrega()." dias</p>";
-            echo '<a href="pedido/finalizar" class="btn btn-success">Finalizar</a>';
-                
-            $_SESSION['frete'] = $frete;
+            echo '<a href="'.$url.'/pedido/finalizar" class="btn btn-success">Finalizar</a>';
             
         }else{
             echo "<p>Insira o CEP</p>";
-            echo '<a href="" class="btn btn-success disabled">Finalizar</a>';
+            echo '<a href="'.$url.'/pedido/finalizar" class="btn btn-success disabled">Finalizar</a>';
         }
     ?>
 

@@ -135,6 +135,13 @@
             $lista = $obj->lista;
             $view = "carrinho.php";
             break;
+
+
+            case 'pedidofinalizar':
+                $obj = new \LOJA\API\PedidoCadastrar;
+                $lista = $obj->lista;
+                $view = "home.php";
+                break;
                
         default:
             echo "ok";

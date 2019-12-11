@@ -25,12 +25,13 @@ class CalcularFrete{
          //echo $frete->getUrl();
          $xml = simplexml_load_file($frete->getUrl());
          //echo print_r($xml);
-         $frete->setValor($xml->cServico->Valor);
-         $frete->setPrazoEntrega($xml->cServico->PrazoEntrega);
+         $frete->setValor((float)$xml->cServico->Valor);
+         $frete->setPrazoEntrega((integer)$xml->cServico->PrazoEntrega);
          
          
 
          $this->frete = $frete;
+         $_SESSION['frete'] = $frete;
 
     }
    }
