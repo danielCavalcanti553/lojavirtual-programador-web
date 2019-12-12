@@ -139,8 +139,8 @@
 
             case 'pedidofinalizar':
                 $obj = new \LOJA\API\PedidoCadastrar;
-                $lista = $obj->lista;
-                $view = "home.php";
+                
+                $view = "home.php"; // PÁGINA LOGIN CLIENTE
                 break;
                
         default:

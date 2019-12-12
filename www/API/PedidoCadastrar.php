@@ -13,7 +13,7 @@ class PedidoCadastrar{
            
      try{
         $c = new Cliente();
-        $c->setId(17);
+        $c->setId(17); // INSERIR UM ID JÁ EXISTENTE
         $c->setNome('Daniel');
     
          $obj = new Pedido();

@@ -56,21 +56,22 @@ class DAOPedidoTest extends TestCase
     $this->carrinho->addItem($this->produto->getId());
 
   }
+  
 
   public function testCadastro() // testa o cadastro de produtos
   {
 
-     $obj = new Pedido();
-     //$c->setId();
-     $obj->setData('2019-12-25');
-     $obj->setFrete(20.00);
-     $obj->setDias(5);
-     $obj->setCliente($this->cliente);
+    $obj = new Pedido();
+    $obj->setData('2019-12-25');
+    $obj->setFrete(20.00);
+    $obj->setDias(5);
+    $obj->setCliente($this->cliente);
     
     $DAO = new DAOPedido();
     $msg = $DAO->cadastrar($obj,$this->carrinho);
 
     $this->assertEquals($msg,"Pedido efetuado com sucesso");
     }
-  }  
+  }
+
   ?>
