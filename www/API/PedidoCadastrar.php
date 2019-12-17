@@ -10,11 +10,11 @@ class PedidoCadastrar{
     public $msg;
 
     function __construct(){
-           
+
      try{
         $c = new Cliente();
-        $c->setId(17); // INSERIR UM ID JÁ EXISTENTE
-        $c->setNome('Daniel');
+        $c->setId($_SESSION['clienteid']); 
+        $c->setNome($_SESSION['clientenome']);
     
          $obj = new Pedido();
          //$c->setId();

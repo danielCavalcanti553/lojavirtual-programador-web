@@ -5,9 +5,11 @@
             stopOnFailure="false">
     <testsuites>
         <testsuite name="Test suite">
-        <file>tests/DAO/DAOPedidoTest.php</file>
+        
         <file>tests/DAO/DAOClienteTest.php</file>
         <file>tests/DAO/DAODepartamentoTest.php</file>
+        <file>tests/DAO/DAOPedidoTest.php</file>
+        <file>tests/API/PedidoCadastrarTest.php</file>
         </testsuite>
     </testsuites>
 

@@ -8,7 +8,16 @@ class Seguranca{
         $config = new Config();
         if(!isset($_SESSION['usuarioid'])){
             header("location: {$config->url}/login/adm");
-            //echo "location: {$config->url}/login/adm";
+
+        }
+    }
+
+    public static function restritoUsuario(){
+
+        $config = new Config();
+        if(!isset($_SESSION['usuarioid'])){
+            header("location: {$config->url}/login/usuario");
+
         }
     }
 }

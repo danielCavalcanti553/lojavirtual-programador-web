@@ -105,6 +105,16 @@
             $view = "form-login-adm.php";
             break;
 
+        case 'loginusuario':
+
+            $obj = new \LOJA\API\DepartamentoListar;
+            $lista = $obj->lista;
+            
+            $obj = new \LOJA\API\UsuarioLogar;
+            $msg = $obj->msg;
+            $view = "form-login.php";
+            break;
+
         case 'paineladm':
             $view = "painel-adm.php";
             break;
@@ -138,8 +148,10 @@
 
 
             case 'pedidofinalizar':
-                $obj = new \LOJA\API\PedidoCadastrar;
+
+                \LOJA\includes\Seguranca::restritoUsuario();
                 
+                $obj = new \LOJA\API\PedidoCadastrar;
                 $view = "home.php"; // PÁGINA LOGIN CLIENTE
                 break;
                
