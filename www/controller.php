@@ -36,6 +36,9 @@
             break;
 
         case 'clientecadastrar':
+
+            $obj = new \LOJA\API\DepartamentoListar;
+            $lista = $obj->lista;
             
             $obj = new \LOJA\API\ClienteCadastrar;
             $msg = $obj->msg;

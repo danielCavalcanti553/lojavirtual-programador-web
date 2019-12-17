@@ -7,11 +7,19 @@ class Cliente{
     private $nome;
     private $telefone;
     private $email;
-    private $cpf;
+		private $cpf;
+		private $senha;
 
     public function __construct(){
-    }
-
+		}
+		
+		public function getSenha(){
+			return $this->senha;
+		}
+	
+		public function setSenha($senha){
+			$this->senha = $senha;
+		}
     public function getId(){
 		return $this->id;
 	}

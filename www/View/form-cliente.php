@@ -1,4 +1,4 @@
-<?php include "view/header.php" ?>
+<?php include "view/header-loja.php" ?>
 <form class="form-horizontal" method="post" action="cadastrar">
         <fieldset>
 
@@ -34,11 +34,18 @@
 
         <!-- Text input-->
         <div class="form-group">
-        <label class="col-md-4 control-label" for="cpf">CPF</label>  
-        <div class="col-md-4">
-        <input id="cpf" name="cpf" type="text" placeholder="" class="form-control input-md" required="">
-            
+            <label class="col-md-4 control-label" for="cpf">CPF</label>  
+            <div class="col-md-4">
+            <input id="cpf" name="cpf" type="text" placeholder="" class="form-control input-md" required="">
         </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="senha">Senha</label>  
+            <div class="col-md-4">
+            <input id="senha" name="senha" type="password" placeholder="" class="form-control input-md" required="">
+        </div>
+
         </div>
 
         <!-- Button -->

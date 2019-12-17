@@ -18,6 +18,7 @@ class ClienteCadastrar{
                     $obj->setTelefone($_POST['telefone']);
                     $obj->setEmail($_POST['email']);
                     $obj->setCpf($_POST['cpf']);
+                    $obj->setSenha($_POST['senha']);
                     
                     $DAO = new DAOCliente();
                     $this->msg = $DAO->cadastrar($obj);

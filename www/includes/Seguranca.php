@@ -15,7 +15,7 @@ class Seguranca{
     public static function restritoUsuario(){
 
         $config = new Config();
-        if(!isset($_SESSION['usuarioid'])){
+        if(!isset($_SESSION['clienteid'])){
             header("location: {$config->url}/login/usuario");
 
         }

@@ -17,6 +17,7 @@
 
         </div>
         <button class="btn btn-primary">Entrar</button>
+        <a href="<?php echo $url; ?>/cliente/cadastrar">Cadastre-se</a>
     </div>
     </div>
 </form>
