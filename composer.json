@@ -8,6 +8,7 @@
         }
     },
     "require": {
+        "phpunit/phpunit-selenium": ">=1.2",
         "facebook/webdriver": "^1.7"
     }
 }

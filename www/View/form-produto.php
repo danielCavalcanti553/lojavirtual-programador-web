@@ -23,7 +23,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="departamento">Departamento</label>  
                 <div class="col-md-4">
-                   <select name="departamento" class="form-control input-md">
+                   <select name="departamento" id="departamento" class="form-control input-md">
                     <?php foreach($lista as $departamento) { ?>
                             <option value="<?php echo $departamento['pk_departamento'] ?>">
                             <?php echo $departamento['nome'] ?></option>
@@ -58,4 +58,5 @@
 
     </fieldset>
 </form>
+<?php include "view/mensagem.php" ?>
 <?php include "view/footer.php" ?>

@@ -61,6 +61,7 @@
             
             $obj = new \LOJA\API\ProdutoCadastrar;
             $msg = $obj->msg;
+            echo $msg;
 
             $obj2 = new \LOJA\API\DepartamentoListar;                ;
             $lista = $obj2->lista;
@@ -148,7 +149,6 @@
             $lista = $obj->lista;
             $view = "carrinho.php";
             break;
-
 
             case 'pedidofinalizar':
 
