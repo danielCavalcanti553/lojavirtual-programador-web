@@ -10,6 +10,11 @@
     $config = new Config();
     $url = $config->url;
 
+    // 1. Na URL são passados 2 parâmetros
+        //  $_GET['model'].$_GET['action'];
+        // Model e Action foram configurados pelo htaccess
+        // juntar as palavras model + action para formar case
+
     switch($router){
 
         case 'departamentocadastrar':
@@ -52,6 +57,10 @@
             break;
 
         case 'clientevisualizar':
+
+            $obj = new \LOJA\API\ClienteAtualizar;
+            $msg = $obj->msg;
+            
             $obj = new \LOJA\API\ClienteVisualizar;
             $cliente = $obj->dados;
             $view = "visualiza-cliente.php";
@@ -152,7 +161,7 @@
 
             case 'pedidofinalizar':
 
-                \LOJA\includes\Seguranca::restritoUsuario();
+                //\LOJA\includes\Seguranca::restritoUsuario();
                 
                 $obj = new \LOJA\API\PedidoCadastrar;
                 $view = "home.php"; // PÁGINA LOGIN CLIENTE

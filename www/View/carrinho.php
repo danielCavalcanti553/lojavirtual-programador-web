@@ -3,8 +3,7 @@
 <div class="row">
     <?php
         $carrinho = $_SESSION['carrinho'];
-
-
+        
          if(is_null($carrinho) || empty($carrinho->getItems())){
             // Inicio HTML
             ?>

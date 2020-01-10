@@ -40,9 +40,9 @@ class DAOCliente{
 
     public function listaClientes(){
        
-        $sql = "SELECT * FROM cliente";  
-        $con = Conexao::getInstance()->prepare($sql);
-        $con->execute();
+        $sql = "SELECT * FROM cliente"; // String de sql
+        $con = Conexao::getInstance()->prepare($sql);// Associa o SQL a Conexão
+        $con->execute();// Executa no banco
         
         $lista = array();
 
@@ -98,5 +98,36 @@ class DAOCliente{
 
     }
 
+
+    public function atualizar(Cliente $cliente){
+
+         try{
+
+            $sql = 
+                "UPDATE cliente SET 
+                    nome= :nome,
+                    telefone= :telefone,
+                    email= :email,
+                    cpf= :cpf,
+                    senha= :senha 
+                    where pk_cliente = :id
+                    ";
+            $con = Conexao::getInstance()->prepare($sql);
+            $con->bindValue(":id", $cliente->getId());
+            $con->bindValue(":nome", $cliente->getNome());
+            $con->bindValue(":telefone", $cliente->getTelefone());
+            $con->bindValue(":email", $cliente->getEmail());
+            $con->bindValue(":cpf", $cliente->getCpf());
+            $con->bindValue(":senha", $cliente->getSenha());
+            $con->execute();
+            echo $cliente->getNome();
+            return "Atualizado com sucesso";
+
+        }catch(Exception $e){
+           
+            return "Erro ao atualizar";
+        }
+
+    }
 }
 ?>

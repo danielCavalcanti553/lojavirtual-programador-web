@@ -1,9 +1,11 @@
 <?php include "view/header.php" ?>
-<form class="form-horizontal" method="post" action="ctrl-cliente-cadastro.php">
+<form class="form-horizontal" method="post" action="<?php echo $url; ?>/cliente/visualizar/<?php echo $_GET['id']; ?>">
         <fieldset>
 
         <!-- Form Name -->
         <legend>Cadastro</legend>
+
+        <input id="id" name="id" value="<?php echo $cliente['pk_cliente']; ?>" type="hidden">
 
         <!-- Text input-->
         <div class="form-group">
@@ -41,11 +43,19 @@
         </div>
         </div>
 
+        <div class="form-group">
+        <label class="col-md-4 control-label" for="cpf">CPF</label>  
+        <div class="col-md-4">
+        <input id="senha" name="senha" type="password" placeholder="" value="<?php echo $cliente['senha']; ?>"  class="form-control input-md" required="">
+            
+        </div>
+        </div>
+
         <!-- Button -->
         <div class="form-group">
         <label class="col-md-4 control-label" for="singlebutton"></label>
         <div class="col-md-4">
-            <button id="singlebutton" name="singlebutton" class="btn btn-primary">Cadastrar</button>
+            <button id="singlebutton" name="singlebutton" class="btn btn-primary">Atualizar</button>
         </div>
         </div>
 

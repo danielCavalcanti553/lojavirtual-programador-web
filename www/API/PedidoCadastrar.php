@@ -13,8 +13,10 @@ class PedidoCadastrar{
 
      try{
         $c = new Cliente();
-        $c->setId($_SESSION['clienteid']); 
-        $c->setNome($_SESSION['clientenome']);
+        //$c->setId($_SESSION['clienteid']); 
+        $c->setId(17); 
+        $c->setNome('Daniel');
+        //$c->setNome($_SESSION['clientenome']);
     
          $obj = new Pedido();
          //$c->setId();
