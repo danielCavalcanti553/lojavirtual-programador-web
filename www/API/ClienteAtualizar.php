@@ -15,7 +15,7 @@ class ClienteAtualizar{
             try{  
                 
                 $obj = new Cliente();
-                $obj->setNome($_POST['id']);
+                $obj->setId($_POST['id']);
                 $obj->setNome($_POST['nome']);
                 $obj->setTelefone($_POST['telefone']);
                 $obj->setEmail($_POST['email']);

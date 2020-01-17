@@ -56,6 +56,9 @@
             $view = "lista-cliente.php";
             break;
 
+
+
+
         case 'clientevisualizar':
 
             $obj = new \LOJA\API\ClienteAtualizar;
@@ -123,7 +126,7 @@
             $obj = new \LOJA\API\DepartamentoListar;
             $lista = $obj->lista;
             
-            $obj = new \LOJA\API\UsuarioLogar;
+            $obj = new \LOJA\API\ClienteLogar($url);
             $msg = $obj->msg;
             $view = "form-login.php";
             break;
@@ -159,14 +162,35 @@
             $view = "carrinho.php";
             break;
 
-            case 'pedidofinalizar':
+        case 'painelcliente':
+           // $obj = new \LOJA\API\DepartamentoListar;
+            //$lista = $obj->lista;
+            $view = "painel-cliente.php";
+            break;
 
-                //\LOJA\includes\Seguranca::restritoUsuario();
-                
-                $obj = new \LOJA\API\PedidoCadastrar;
-                $view = "home.php"; // PÁGINA LOGIN CLIENTE
-                break;
-               
+        case 'pedidofinalizar':
+
+            //\LOJA\includes\Seguranca::restritoUsuario();
+            
+            $obj = new \LOJA\API\PedidoCadastrar($url);
+            $obj = new \LOJA\API\DepartamentoListar;
+            $lista = $obj->lista;
+
+            $view = "pagamento.php"; // PÁGINA LOGIN CLIENTE
+            break;
+
+        case 'pedidopagamento':
+
+            //$obj = new \LOJA\API\DepartamentoListar;
+            //$lista = $obj->lista;
+
+            $obj = new \LOJA\API\PagamentoVisualizar;
+            $pagamento = $obj->pagamento;
+            
+            $view = "pagamento.php"; // PÁGINA LOGIN CLIENTE
+            break;
+
+           
         default:
             echo "ok";
             $obj = new \LOJA\API\DepartamentoListar;

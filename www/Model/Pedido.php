@@ -7,10 +7,21 @@ class Pedido{
     private $data;
     private $frete;
     private $dias;
-    private $cliente;
+	private $cliente;
+	private $total;
 
     function __construct(){
 	}
+
+
+	public function getTotal(){
+		return $this->total;
+	}
+
+	public function setTotal($total){
+		$this->total = $total;
+	}
+
 	
     // Get Set
     public function getId(){
