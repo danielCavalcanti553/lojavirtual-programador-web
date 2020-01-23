@@ -48,7 +48,8 @@ class DAOPedido{
     }
 
     public function listarPedidoCliente($idCliente){
-        $sql = "SELECT pedido.data_pedido,
+        $sql = "SELECT pedido.pk_pedido,
+                        pedido.data_pedido,
                     SUM(produto.preco*item.quantidade) as total
             
                         FROM pedido INNER JOIN cliente
@@ -60,35 +61,60 @@ class DAOPedido{
                         INNER JOIN produto
                         ON produto.pk_produto = item.fk_produto
                         
-                        WHERE cliente.pk_cliente = :id";
+                        WHERE cliente.pk_cliente = :id 
+                        group by pedido.pk_pedido";
 
         $con = Conexao::getInstance()->prepare($sql);
         $con->bindValue(":id", $idCliente);
-        $result = $con->execute();
+        $con->execute();
+        $lista = array();
+
+        while($pedido = $con->fetch(\PDO::FETCH_ASSOC)) {
+            $lista[] = $pedido;
+        }
+        return $lista;
         
     }
 
     public function detalhaPedido($idPedido){
         $sql = "SELECT 
-            pedido.data_pedido,
-            pedido.frete,
-            produto.nome,
-            produto.preco
-            
-                FROM pedido INNER JOIN cliente
-                ON pedido.fk_cliente = cliente.pk_cliente
+                pedido.pk_pedido,
+                pedido.data_pedido,
+                pedido.frete,
+                pedido.dias,
+                SUM(produto.preco*item.quantidade) as total 
+                    FROM pedido INNER JOIN cliente
+                    ON pedido.fk_cliente = cliente.pk_cliente
 
-                INNER JOIN item
-                ON item.fk_pedido = pedido.pk_pedido
+                    INNER JOIN item
+                    ON item.fk_pedido = pedido.pk_pedido
 
-                INNER JOIN produto
-                ON produto.pk_produto = item.fk_produto
-                
-                WHERE pedido.pk_pedido = :id";
+                    INNER JOIN produto
+                    ON produto.pk_produto = item.fk_produto
+                    
+                    WHERE pedido.pk_pedido = :id";
+                $con = Conexao::getInstance()->prepare($sql);
+                $con->bindValue(":id", $idPedido);
+                $con->execute();
+                $pedido = $con->fetch(\PDO::FETCH_ASSOC);
+                return $pedido;
+    }
 
-            $con = Conexao::getInstance()->prepare($sql);
-            $con->bindValue(":id", $idPedido);
-            $result = $con->execute();
+    public function listaItens($idPedido){
+        $sql = "SELECT * FROM `item`
+                inner join produto
+                on produto.pk_produto = item.fk_produto
+                where fk_pedido = :id";
+
+        $con = Conexao::getInstance()->prepare($sql);
+        $con->bindValue(":id", $idPedido);
+        $con->execute();
+        $lista = array();
+
+        while($pedido = $con->fetch(\PDO::FETCH_ASSOC)) {
+            $lista[] = $pedido;
+        }
+        return $lista;
     }
 
     function buscaPorId($idPedido){

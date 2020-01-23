@@ -123,6 +123,8 @@
 
         case 'loginusuario':
 
+
+
             $obj = new \LOJA\API\DepartamentoListar;
             $lista = $obj->lista;
             
@@ -163,9 +165,18 @@
             break;
 
         case 'painelcliente':
-           // $obj = new \LOJA\API\DepartamentoListar;
-            //$lista = $obj->lista;
+            $obj = new \LOJA\API\PedidoListar;
+            $pedidos = $obj->lista;
+
             $view = "painel-cliente.php";
+            break;
+
+        case 'painelpedido':
+            $obj = new \LOJA\API\PedidoVisualiza;
+            $dados = $obj->dados;
+            $produtos = $obj->produtos;
+                
+            $view = "visualiza-pedido.php";
             break;
 
         case 'pedidofinalizar':
