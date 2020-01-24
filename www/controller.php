@@ -157,6 +157,11 @@
             $lista = $obj->lista;
             $view = "carrinho.php";
             break;
+        
+        case 'produtoquantidade':
+            $obj = new \LOJA\API\CarrinhoQuantidade;
+            //header("location:".$url."/carrinho");
+            break;  
 
         case 'carrinho':
             $obj = new \LOJA\API\DepartamentoListar;

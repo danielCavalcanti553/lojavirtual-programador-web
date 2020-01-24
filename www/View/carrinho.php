@@ -23,11 +23,25 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-2"><img width="100%" src="<?php echo $url.'/View/img/produtos/'.$produto->getImagem(); ?>"></div>
-                        <div class="col-md-10">
+                        <div class="col-md-3">
                         <p><?php echo $produto->getNome(); ?></p>
                         <a href="<?php echo $link; ?>" class="btn btn-danger">Remover</a>
                         
                         </div>
+                        
+                        
+                        
+                        <div class="col-md-4">
+                        <form method="post" action="<?php echo $url ?>/produto/quantidade">
+                        
+                            <input type="number" name="quantidade" value="<?php echo $item->getQuantidade(); ?>" style="width: 35px;"/>
+                            <input type="submit" style="btn btn-warning" value="Atualizar" />
+                            </form>
+                        </div>
+
+
+                        
+                        
                     </div>
                 </div>
 

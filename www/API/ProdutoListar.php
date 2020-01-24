@@ -8,7 +8,7 @@ class ProdutoListar {
     function __construct(){
     
         $obj = new DAOProduto();
-        $this->lista = $obj->listarPedidoCliente();
+        $this->lista = $obj->listaProduto();
         
     }
 }

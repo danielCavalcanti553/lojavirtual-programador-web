@@ -46,6 +46,14 @@ class Carrinho{
 		}
 	}
 
+	public function updateQtd($q){
+		foreach($this->lista as $item){
+			if($item->getProduto()->getId()===$id){
+				$item->setProduto()->setQuantidade($q);
+			};
+		}
+	}
+
 	public function total(){
 		$total = 0;
 		foreach($this->lista as $item){
